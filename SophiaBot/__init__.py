@@ -107,6 +107,7 @@ if ENV:
     GENIUS_API_TOKEN = os.environ.get("GENIUS_API_TOKEN", None)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY", None)
+    RSS_DELAY = os.environ.get("RSS_DELAY", None)
     bot_start_time = time.time()
 
     try:
@@ -189,6 +190,8 @@ else:
     REM_BG_API_KEY = Config.REM_BG_API_KEY
     GENIUS_API_TOKEN = Config.GENIUS_API_TOKEN
     LASTFM_API_KEY = Config.LASTFM_API_KEY
+    RSS_DELAY = Config.RSS_DELAY
+
 
     
     try:
