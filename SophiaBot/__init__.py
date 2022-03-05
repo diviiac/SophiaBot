@@ -9,6 +9,10 @@ from pyrogram import Client, errors
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
+from odmantic import AIOEngine
+from pymongo import MongoClient
+from pymongo.errors import ServerSelectionTimeoutError
+from motor import motor_asyncio
 
 StartTime = time.time()
 
@@ -224,6 +228,13 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("sophia", API_ID, API_HASH)
 pbot = Client("sophiapyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+
+#install mongodb
+MONGO_DB = "SophiaBot"
+mongodb = MongoClient(MONGO_DB_URI, 27017)[MONGO_DB]
+motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URI)
+db = motor[MONGO_DB]
+engine = AIOEngine(motor, MONGO_DB)
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
